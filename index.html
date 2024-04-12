@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tarjetas Mundiales</title>
+    <!-- Material-UI CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@mui/material@5.4.3/dist/material.min.css"
+        integrity="sha384-K9LsPrPT4dJb0rF+Nh+VzB+S2Ml9bV+D15XE2jTj6pT+PWJgNcH3ZiS8bwhjUXA+" crossorigin="anonymous">
+    <!-- Material-UI Icons -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
+    <link href="https://fonts.googleapis.com/css?family=Lato|Liu+Jian+Mao+Cao&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/estilos.css">
+<style>
+    .card-container {
+        display: flex;
+        justify-content: center;
+        /* Alinear las tarjetas con espacio entre ellas */
+        align-items: center;
+        height: 100%;
+    }
+
+    .tarjeta {
+        margin: 0 50px;
+        /* Margen entre las tarjetas */
+    }
+
+    /* Estilos para la imagen */
+    .delantera {
+        width: 300px;
+        height: 200px;
+        background-size: cover;
+        background-position: center;
+        margin-bottom: 10px;
+    }
+
+    .select-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 10vh;
+        margin-bottom: 100px;
+        margin-top: 100px;
+    }
+
+    #select-fondos {
+        font-family: 'Lato', sans-serif;
+        padding: 10px;
+        border: 2px solid #060f8e;
+        border-radius: 5px;
+        background-color: #fff;
+        color: #0d0fb0;
+        font-size: 16px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        outline: none;
+    }
+
+    #select-fondos:hover {
+        background-color: #0687c2;
+        color: #fff;
+    }
+</style>
+</head>
+
+<body>
+    <!-- Select para elegir fondo -->
+    <div class="select-container">
+        <select id="select-fondos">
+            <option value="bandera-venezuela.jpg">Venezuela</option>
+            <option value="bandera-argentina.jpg">Argentina</option>
+            <option value="bandera-alemania.jpg">Alemania</option>
+            <option value="bandera-brasil.jpg">Brasil</option>
+            <option value="bandera-ecuador.jpg">Ecuador</option>
+            <option value="bandera-espana.jpg">España</option>
+            <option value="bandera-francia.jpg">Francia</option>
+            <option value="bandera-portugal.jpg">Portugal</option>
+            <!-- Agrega más opciones según tus fondos -->
+        </select>
+    </div>
+
+    <div class="card-container">
+        <!-- Tarjeta Visa -->
+        <section class="tarjeta" id="tarjeta-visa">
+            <div class="delantera" id="delantera-visa">
+                <div class="logo-marca" id="logo-marca-visa">
+                    <img src="img/logos/visa.png" alt="visa">
+                </div>
+                <img src="img/chip-tarjeta.png" class="chip" alt="">
+                <div class="datos">
+                    <div class="grupo" id="numero">
+                        <p class="label">Número Tarjeta</p>
+                        <p class="numero">#### #### #### ####</p>
+                    </div>
+                    <div class="flexbox">
+                        <div class="grupo" id="nombre">
+                            <p class="label">Nombre Tarjeta</p>
+                            <p class="nombre">Tu nombre es</p>
+                        </div>
+
+                        <div class="grupo" id="expiracion">
+                            <p class="label">Expiracion</p>
+                            <p class="expiracion"><span class="mes">MM</span> / <span class="year">AA</span></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <span class="card-title"><br/>Visa</span>
+        </section>
+
+        <!-- Tarjeta MasterCard -->
+        <section href="card-master.html" class="tarjeta" id="tarjeta-mastercard">
+            <div class="delantera" id="delantera-mastercard">
+                <div class="logo-marca" id="logo-marca-mastercard">
+                    <img src="img/logos/mastercard.png" alt="mastercard">
+                </div>
+                <img src="img/chip-tarjeta.png" class="chip" alt="">
+                <div class="datos">
+                    <div class="grupo" id="numero">
+                        <p class="label">Número Tarjeta</p>
+                        <p class="numero">#### #### #### ####</p>
+                    </div>
+                    <div class="flexbox">
+                        <div class="grupo" id="nombre">
+                            <p class="label">Nombre Tarjeta</p>
+                            <p class="nombre">Tu nombre es</p>
+                        </div>
+
+                        <div class="grupo" id="expiracion">
+                            <p class="label">Expiracion</p>
+                            <p class="expiracion"><span class="mes">MM</span> / <span class="year">AA</span></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <span class="card-title"><br/>MasterCard</span>
+        </section>
+
+    </div>
+
+    <!-- JavaScript para cambiar el fondo de las tarjetas -->
+ <!-- JavaScript para cambiar el fondo de las tarjetas y redirigir al usuario -->
+ <script>
+    const selectFondos = document.getElementById('select-fondos');
+    const delanteraVisa = document.getElementById('delantera-visa');
+    const delanteraMastercard = document.getElementById('delantera-mastercard');
+    const tarjetaVisa = document.getElementById('tarjeta-visa');
+    const tarjetaMastercard = document.getElementById('tarjeta-mastercard');
+
+    selectFondos.addEventListener('change', function () {
+        const selectedFondo = selectFondos.value;
+        delanteraVisa.style.backgroundImage = `url('img/fondos-tarjeta/${selectedFondo}')`;
+        delanteraMastercard.style.backgroundImage = `url('img/fondos-tarjeta/${selectedFondo}')`;
+    });
+
+        // Redirigir al usuario cuando haga clic en la tarjeta Visa
+        tarjetaVisa.addEventListener('click', function () {
+            const selectedFondo = selectFondos.value;
+            sessionStorage.setItem('selectedFondo', selectedFondo);
+            window.location.href = 'card.html';
+        });
+
+        // Redirigir al usuario cuando haga clic en la tarjeta MasterCard
+        tarjetaMastercard.addEventListener('click', function () {
+            const selectedFondo = selectFondos.value;
+            sessionStorage.setItem('selectedFondo', selectedFondo);
+            window.location.href = 'card.html';
+        });
+</script>
+
+</body>
+
+</html>
