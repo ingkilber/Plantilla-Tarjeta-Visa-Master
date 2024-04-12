@@ -10,7 +10,7 @@ Es una aplicación web desarrollada con HTML, CSS y JavaScript que permite a los
 
 # Home - inicio
 
-![Home](https://github.com/ingkilber/Sistema-Hotel-Con-Panel-Admin-PHP/blob/main/images/Kilber-Marcano.png)
+![Home](https://github.com/ingkilber/Sistema-Hotel-Con-Panel-Admin-PHP/blob/main/img/Kilber-Marcano.png)
 
 
 ## 🚀 Tecnología
